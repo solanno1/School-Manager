@@ -1,0 +1,14 @@
+{
+  "teachers": [
+    {
+      "id": 1,
+      "avatar_url": "http://asdsad",
+      "name": "asdasd",
+      "select": "mestrado",
+      "birth": 1591056000000,
+      "services": "m",
+      "aula": "P",
+      "created_at": 1593458378813
+    }
+  ]
+}
