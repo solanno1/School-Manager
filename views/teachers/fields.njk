@@ -1,21 +1,21 @@
 <div class="item">
     <div>URL Foto</div>
     <div>
-        <input type="url" name="avatar_url" placeholder="http://">
+        <input type="url" name="avatar_url" placeholder="http://" value="{{teacher.avatar_url}}">
     </div>
 </div>
 
 <div class="item">
     <div>Professor</div>
     <div>
-        <input type="text" name="name" placeholder="Nome do instrutor">
+        <input type="text" name="name" placeholder="Nome do instrutor" value="{{teacher.name}}">
     </div>
 </div>
 
 <div class="item">
     <div>Data de nascimento</div>
     <div>
-        <input type="date" name="birth">
+        <input type="date" name="birth" value="{{teacher.birth}}">
     </div>
 </div>
 
@@ -23,10 +23,26 @@
     <div>Escolaridade</div>
     <div>
         <select name="select" class="select">
-            <option value="Ensino Medio Completo">Ensino medio completo</option>
-            <option value="Ensino Superior Completo">Ensiono superior completo</option>
-            <option value="Mestrado">Mestrado</option>
-            <option value="Doutorado">Doutorado</option>
+            <option value="Ensino Medio Completo"
+            {% if teacher.select == "Ensino Medio Completo" %}
+            selected
+            {% endif %}
+            >Ensino medio completo</option>
+            <option value="Ensino Superior Completo"
+            {% if teacher.select == "Ensino Superior Completo" %}
+            selected
+            {% endif %}
+            >Ensiono superior completo</option>
+            <option value="Mestrado"
+            {% if teacher.select == "Mestrado" %}
+            selected
+            {% endif %}
+            >Mestrado</option>
+            <option value="Doutorado"
+            {% if teacher.select == "Doutorado" %}
+            selected
+            {% endif %}
+            >Doutorado</option>
         </select>
     </div>
 </div>
@@ -34,15 +50,27 @@
 <div class="item">
     <div>Aulas</div>
     <div>
-        <span><input type="radio" name="aula" value="P" checked="checked">Presencial</span>
-        <span><input type="radio" name="aula" value="D">À distância</span>
+        <span>
+            <input type="radio"
+                   name="aula"
+                   value="P"
+                   {% if teacher.aula == "P" %}
+                    checked
+                   {% endif %}>Presencial</span>
+        <span>
+            <input type="radio"
+                   name="aula"
+                   value="D"
+                   {% if teacher.aula == "D" %}
+                   checked
+                   {% endif %}>À distância</span>
     </div>
 </div>
 
 <div class="item">
     <div>Área de atuação</div>
     <div>
-        <input type="text" name="services" placeholder="Aulas apto a lecionar">
+        <input type="text" name="services" placeholder="Aulas apto a lecionar" value="{{teacher.services}}">
     </div>
 </div>
 <button type="submit">Salvar</button>

@@ -150,7 +150,8 @@ input[type="radio"]{
     margin-bottom: 2px;
 }
 
-button[type="submit"]{
+button[type="submit"],
+a.button{
     padding: 8px 32px;
     background-color: var(--primary-color);
     color: #fff;
@@ -161,6 +162,26 @@ button[type="submit"]{
     letter-spacing: 0.6;
 }
 
+button[type="submit"]{
+    margin-right: 25px;
+    margin-left: 16.62px;
+    width: 40%;
+    /* display: inline-block; */
+    float: left;    
+    justify-content: center;
+
+}
+
+a.button{
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+}
+
+#form-delete button{
+    background-color: rgb(141, 25, 25);
+}
 
 
 /* ERROR 404 */
@@ -197,5 +218,7 @@ button[type="submit"]{
 	width: 200px; 	
 	color: gray;
 	padding: 5px;
-    border:1px solid gray !important;    
+    border-bottom: 1px solid gray !important;    
+    font-weight: bold;
 }
+
