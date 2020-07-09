@@ -3,7 +3,7 @@
 {% block content %}
     <div class="card">
 
-        <section class="avatar" style="background: url(https://source.unsplash.com/collection/1287676/500x500) no-repeat center center / cover"></section>
+        <section class="avatar" style="background: url({{teacher.avatar_url}}) no-repeat center center / cover" ></section>
         <section class="details">
             <form method="POST" action="/teachers?_method=PUT">
                 <h3>Editar Professor</h3>
