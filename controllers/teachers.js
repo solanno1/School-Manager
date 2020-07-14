@@ -1,6 +1,6 @@
 const fs = require('fs')
-const data = require("./data.json")
-const { age, graduation, date } = require("./utils")
+const data = require("../data.json")
+const { age, graduation, date } = require("../utils")
 const Intl = require('intl')
 
 exports.index = function(req, res){
@@ -13,7 +13,10 @@ exports.index = function(req, res){
     return res.render("teachers/index", {teachers})
 }
 
-//show
+exports.create =  function(req, res){
+    return res.render("teachers/create")
+}
+
 exports.show = function(req, res){
     const { id } = req.params
     const foundTeacher = data.teachers.find(function(teacher){
@@ -31,8 +34,6 @@ exports.show = function(req, res){
         return res.render("teachers/show", {teacher})
 }
 
-
-//edit
 exports.edit = function(req, res){
     const { id } = req.params
     const foundTeacher = data.teachers.find(function(teacher){
@@ -46,7 +47,6 @@ exports.edit = function(req, res){
     return res.render("teachers/edit", {teacher})
 }
 
-//create
 exports.post = function(req, res){
     const keys = Object.keys(req.body)
 

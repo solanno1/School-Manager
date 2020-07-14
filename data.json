@@ -1,4 +1,15 @@
 {
+  "students": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "name": "Solano oliveira",
+      "birth": 879379200000,
+      "email": "solano@email.com",
+      "select": "3EM",
+      "carga": "55"
+    }
+  ],
   "teachers": [
     {
       "id": 3,
@@ -6,7 +17,11 @@
       "name": "Solanoi=",
       "select": "Ensino Superior Completo",
       "birth": 658454400000,
-      "services": "asdasd, asdasd, as",
+      "services": [
+        "asdasd",
+        " asdasd",
+        " as"
+      ],
       "aula": "D",
       "created_at": 1594062246720
     },
@@ -16,27 +31,35 @@
       "name": "Solanoi=",
       "select": "Ensino Superior Completo",
       "birth": 658454400000,
-      "services": "asdasd, asdasd, as",
+      "services": [
+        "asdasd",
+        " asdasd",
+        " as"
+      ],
       "aula": "D",
       "created_at": 1594067062155
     },
     {
-      "id": 0,
+      "id": 5,
       "avatar_url": "https://images.unsplash.com/photo-1583468991267-3f068b607ae1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1213&q=80",
       "name": "asfsafd",
       "select": "Ensino Medio Completo",
       "birth": -1907366400000,
-      "services": "f",
+      "services": [
+        "f"
+      ],
       "aula": "P",
       "created_at": 1594244805521
     },
     {
-      "id": 0,
+      "id": 7,
       "avatar_url": "https://images.unsplash.com/photo-1583468991267-3f068b607ae1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1213&q=80",
       "name": "asdasfd",
       "select": "Doutorado",
       "birth": 1594252800000,
-      "services": "fgg",
+      "services": [
+        "fgg"
+      ],
       "aula": "P",
       "created_at": 1594245019361
     },
@@ -46,7 +69,9 @@
       "name": "sdfdsf",
       "select": "Mestrado",
       "birth": 1595548800000,
-      "services": "asd",
+      "services": [
+        "asd"
+      ],
       "aula": "P",
       "created_at": 1594246044931
     }
