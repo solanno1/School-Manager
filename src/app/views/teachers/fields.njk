@@ -8,7 +8,7 @@
 <div class="item">
     <div>Professor</div>
     <div>
-        <input type="text" name="name" placeholder="Nome do instrutor" value="{{teacher.name}}">
+        <input type="text" name="name" placeholder="Nome do professor" value="{{teacher.name}}">
     </div>
 </div>
 
@@ -22,24 +22,24 @@
 <div class="item">
     <div>Escolaridade</div>
     <div>
-        <select name="select" class="select">
+        <select name="education_level" class="select">
             <option value="Ensino Medio Completo"
-            {% if teacher.select == "Ensino Medio Completo" %}
+            {% if teacher.education_level == "Ensino Medio Completo" %}
             selected
             {% endif %}
             >Ensino medio completo</option>
             <option value="Ensino Superior Completo"
-            {% if teacher.select == "Ensino Superior Completo" %}
+            {% if teacher.education_level == "Ensino Superior Completo" %}
             selected
             {% endif %}
             >Ensiono superior completo</option>
             <option value="Mestrado"
-            {% if teacher.select == "Mestrado" %}
+            {% if teacher.education_level == "Mestrado" %}
             selected
             {% endif %}
             >Mestrado</option>
             <option value="Doutorado"
-            {% if teacher.select == "Doutorado" %}
+            {% if teacher.education_level == "Doutorado" %}
             selected
             {% endif %}
             >Doutorado</option>
@@ -52,16 +52,16 @@
     <div>
         <span>
             <input type="radio"
-                   name="aula"
+                   name="class_type"
                    value="P"
-                   {% if teacher.aula == "P" %}
+                   {% if teacher.class_type == "P" %}
                     checked
                    {% endif %}>Presencial</span>
         <span>
             <input type="radio"
-                   name="aula"
+                   name="class_type"
                    value="D"
-                   {% if teacher.aula == "D" %}
+                   {% if teacher.class_type == "D" %}
                    checked
                    {% endif %}>À distância</span>
     </div>
@@ -70,7 +70,7 @@
 <div class="item">
     <div>Área de atuação</div>
     <div>
-        <input type="text" name="services" placeholder="Aulas apto a lecionar" value="{{teacher.services}}">
+        <input type="text" name="subjects_taught" placeholder="Aulas apto a lecionar" value="{{teacher.subjects_taught}}">
     </div>
 </div>
 <button type="submit">Salvar</button>

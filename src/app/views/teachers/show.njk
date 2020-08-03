@@ -23,22 +23,22 @@
             <div class="item">
                 <div>Escolaridade</div>
                 <div>
-                    {{teacher.select}}
+                    {{teacher.education_level}}
                 </div>
             </div>
 
             <div class="item">
                 <div>Aulas</div>
                 <div>
-                    {{"Presencial" if teacher.aula == "P" else "À distância"}}
+                    {{"Presencial" if teacher.class_type == "P" else "À distância"}}
                 </div>
             </div>
 
             <div class="item">
                 <div>Área de atuação</div>
                 <div>
-                    {%for service in teacher.services%}
-                        <span>{{service}}</span>
+                    {%for subject in teacher.subjects_taught%}
+                        <span>{{subject}}</span>
                         {%endfor%}
                     </div>
                 </div>

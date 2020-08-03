@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
 :root{
-    --primary-color: #393939 ;
+    --primary-color: #2a9d8f ;
+    --secondary-color: #264653;
+    --third-color: #e9c46a;
+    --forth-color: #A2E8DD;
 }
 
 *{
@@ -17,7 +20,7 @@ body{
 }
 
 header{
-    background-color: #fff;
+    background-color: var(--secondary-color);
     width: 100%;
     padding: 32px;
     text-align: center;
@@ -34,17 +37,17 @@ header{
 
 .links a{
     text-decoration: none;
-    color: #777;
+    color: var(--forth-color);   
     position: relative;
 }
 
 .links a.active{
     font-weight: bold;
-    color: var(--primary-color);
+    color: #32DE8A;
 }
 
 .links a:hover{
-    color: var(--primary-color);
+    color: var(--forth-color);   
 }
 
 .links a::after{
@@ -100,7 +103,7 @@ header{
 .details .item div:nth-child(1){
     font-size: 14px;
     line-height: 24px;
-    color: #777;
+    color: var(--primary-color);
     letter-spacing: 0.7px;
     font-weight: normal;
 }
@@ -108,17 +111,18 @@ header{
 .details h3{
     text-transform: uppercase;
     font-weight: bold;
+    
 }
 
 .details .item div:nth-child(2){
-    color: #555;
+    color: var(--secondary-color);
     font-weight: bold;
     font-size: 18px;
 }
 
 .details .item span{
     padding: 8px 16px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--forth-color);
     border-radius: 16px;
     color: #444;
     margin-right: 4px;
@@ -153,7 +157,7 @@ input[type="radio"]{
 button[type="submit"],
 a.button{
     padding: 8px 32px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: #fff;
     border-radius: 8px;
     margin-top: 32px;
@@ -216,7 +220,7 @@ a.button{
 	-webkit-appearance: none;  
 	-moz-appearance: none; 
 	width: 200px; 	
-	color: gray;
+	color: var(--secondary-color);
 	padding: 5px;
     border-bottom: 1px solid gray !important;    
     font-weight: bold;
@@ -286,9 +290,9 @@ td:last-child{
 
 .table-container tbody tr td:nth-child(2) span{
     padding: 8px 16px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--forth-color);
     border-radius: 16px;
-    color: #444;
+    color: var(--secondary-color);
     margin-right: 4px;
     margin-top: 8px;
     /* display: inline-block; */
