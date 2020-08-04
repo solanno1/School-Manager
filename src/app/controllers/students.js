@@ -19,11 +19,16 @@ module.exports = {
         Student.find(req.params.id, function(student){
             if(!student) return res.send("Student not found!")
             student.birth = date(student.birth).iso
-            return res.render("students/edit", {student})
+            Student.teacherOptions(function(options){
+                return res.render("students/edit", {student, teacherOptions: options})
+            })
         })
     },
     create(req, res){
-        return res.render("students/create")
+        Student.teacherOptions(function(options){
+            return res.render("students/create", {teacherOptions: options})
+        })
+        
     },
     post(req, res){
         const keys = Object.keys(req.body)
