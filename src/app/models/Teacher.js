@@ -49,6 +49,18 @@ module.exports = {
                 callback(results.rows[0])
         })
     },
+    findBy(filter, callback){
+        db.query(`SELECT teachers.*, count(students) AS total_students
+        FROM teachers
+        LEFT JOIN students ON (teachers.id = students.teacher_id)
+        WHERE teachers.name ILIKE '%${filter}%'
+        OR teachers.subjects_taught ILIKE '%${filter}%'
+        GROUP BY teachers.id
+        ORDER BY total_students DESC`, function(err, results){
+            if (err) throw `Database error ${err}`
+            callback(results.rows)
+        })
+    },
     update(data, callback){
         const query = `
             UPDATE teachers SET
@@ -78,6 +90,36 @@ module.exports = {
         db.query(`DELETE from teachers WHERE id = $1`, [id], function(err, results){
             if(err) throw `Database error ${err}`
             return callback()
+        })
+    },
+    paginate(params){
+        const {filter, limit, offset, callback} = params
+        let query = "",
+        filterQuery = "",
+        totalQuery = `(
+            SELECT count(*) FROM teachers
+        ) AS total`
+
+        if(filter){
+            filterQuery = `
+                WHERE teachers.name ILIKE '%${filter}%'
+                OR teachers.subjects_taught ILIKE '%${filter}%'
+            `
+            totalQuery = `(
+                    SELECT count(*) FROM teachers
+                    ${filterQuery}
+            ) AS total`
+        }
+
+        query = `SELECT teachers.*, ${totalQuery}, COUNT(students) AS total_students FROM teachers
+        LEFT JOIN students ON (teachers.id = students.teacher_id)
+        ${filterQuery}
+        GROUP BY teachers.id
+        LIMIT $1 OFFSET $2`
+
+        db.query(query, [limit, offset], function(err, results){
+            if(err) throw `Database Error ${err}`
+            callback(results.rows)
         })
     }
 }

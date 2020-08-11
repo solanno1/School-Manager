@@ -4,22 +4,42 @@ const Intl = require('intl')
 
 module.exports = {
     index(req, res) {
-        Teacher.all(function (teachers) {
-            for (teacher of teachers) {
-                teacher.subjects_taught = teacher.subjects_taught.split(',')
+       
+
+        let { filter, page, limit } = req.query
+
+        page = page || 1
+        limit = limit || 5
+        let offset = limit * (page - 1)
+
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(teachers) {
+                for (teacher of teachers) {
+                    teacher.subjects_taught = teacher.subjects_taught.split(',')
+                }
+
+                const pagination = {
+                    total: Math.ceil(teachers[0].total / limit),
+                    page
+                }
+                return res.render("teachers/index", { teachers, pagination, filter })
             }
-            return res.render("teachers/index", { teachers })
-        })
+        }
+        Teacher.paginate(params)
     },
     show(req, res) {
         Teacher.find(req.params.id, function (teacher) {
-            if (!teacher) return res.send("Teacher not found!")            
+            if (!teacher) return res.send("Teacher not found!")
 
-            
-                teacher.subjects_taught = teacher.subjects_taught.split(',')
-            
 
-                teacher.age = age(teacher.birth),
+            teacher.subjects_taught = teacher.subjects_taught.split(',')
+
+
+            teacher.age = age(teacher.birth),
                 teacher.created_at = Intl.DateTimeFormat("pt-BR").format(teacher.created_at),
                 teacher.education_level = graduation(teacher.education_level)
 
@@ -56,14 +76,14 @@ module.exports = {
         for (key of keys) {
             if (data[key] == "") {
                 return res.send("Please fill all the fields")
-            }            
+            }
         }
-        Teacher.update(data, function() {
+        Teacher.update(data, function () {
             return res.redirect(`/teachers/${data.id}`)
         })
     },
-    delete(req, res){
-        Teacher.delete(req.body.id, function(){
+    delete(req, res) {
+        Teacher.delete(req.body.id, function () {
             return res.redirect("/teachers")
         })
     }
